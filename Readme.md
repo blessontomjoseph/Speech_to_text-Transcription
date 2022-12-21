@@ -18,7 +18,6 @@ this adds your NeuralSpace authentication key in the appropriate directory
 
 
 ```bash
-pip install jj
 docker build -t <image_name> .
 docker run <image_name>
 ```
