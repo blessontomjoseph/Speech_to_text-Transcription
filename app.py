@@ -2,14 +2,15 @@ import streamlit as st
 import trans
 import os
 
+auth_key = st.secrets['auth_key']
 def ex(url):
     if st.button('apply'):
         try:
             name=trans.transcribe(url)
-            fileid=trans.fileId(name)
-            transid=trans.transcribeId(fileid)
+            fileid=trans.fileId(name,auth_key)
+            transid=trans.transcribeId(fileid,auth_key)
             st.write('Wait for the transcription...')
-            transcribe=trans.text_output(transid)
+            transcribe=trans.text_output(transid,auth_key)
             st.snow()
             st.write('Transription')
             st.write(transcribe)

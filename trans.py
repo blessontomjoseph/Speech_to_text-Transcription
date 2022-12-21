@@ -4,7 +4,6 @@ import os
 import requests
 import time
 
-auth_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzE0NzU5NjAxLCJkYXRhIjp7ImVtYWlsIjoiYmxlc3NvbnRvbWpvc2VwaEBnbWFpbC5jb20iLCJyb2xlIjoicHJvdmlkZXIiLCJhcGlrZXkiOiIzYzM3MmViMi04MTNiLTQ5ZGQtYWYyZS02ODFhMDFkYzhmMWQiLCJyZWZlcmVuY2VLZXkiOiIzYzM3MmViMi04MTNiLTQ5ZGQtYWYyZS02ODFhMDFkYzhmMWQiLCJwbGFuVHlwZSI6ImRlZmF1bHQiLCJjb3VudHJ5IjoiSW5kaWEifSwiaWF0IjoxNjcxNDc1NjAwfQ.yknkfcje_WgDOIk588JyFXtoRLgyMKC6LA9jY0ztd0E"
 
 def transcribe(url):
     video = YouTube(url)
@@ -20,7 +19,7 @@ def transcribe(url):
     return file_name
 
 
-def fileId(file_name):
+def fileId(file_name,auth_key):
     url = 'https://platform.neuralspace.ai/api/file/upload'
     headers = {'Authorization': auth_key}
     files = {'files': (file_name, open(file_name, 'rb'))}
@@ -28,7 +27,7 @@ def fileId(file_name):
     return response.json()['data']['fileId']
 
 
-def transcribeId(fieldId):
+def transcribeId(fieldId,auth_key):
     url = 'https://platform.neuralspace.ai/api/transcription/v1/file/transcribe'
     headers = {'Authorization': auth_key,
                   'Content-Type': 'application/json'
@@ -42,7 +41,7 @@ def transcribeId(fieldId):
     return response.json()['data']['transcribeId']
 
 
-def text_output(transcribeId):
+def text_output(transcribeId,auth_key):
     """feltch transcription"""
     url = 'https://platform.neuralspace.ai/api/transcription/v1/single/transcription'
     params = {'transcribeId': transcribeId}
