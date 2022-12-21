@@ -16,12 +16,12 @@ def ex(url):
             st.write(transcribe)
             os.remove(name)
         except:
-            st.warning('paste a valid yt-url')
+            st.warning('paste a valid YouTube URL')
 
            
         
 if __name__ == '__main__':
     st.title('Audio Transcription powered by NeuralSpace')
-    url = st.text_input('Enter URL of YouTube video:')
+    url = st.text_input('Enter a YouTube URL')
     ex(url)
     
