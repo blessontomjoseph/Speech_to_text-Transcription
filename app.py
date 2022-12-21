@@ -12,7 +12,7 @@ def ex(url):
             st.write('Wait for the transcription...')
             transcribe=trans.text_output(transid,auth_key)
             st.snow()
-            st.write('Transription')
+            st.write('Transription:')
             st.write(transcribe)
             os.remove(name)
         except:
