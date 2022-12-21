@@ -10,14 +10,15 @@ web_app: https://blessontomjoseph-transcription-neuralspace-app-qxqa4t.streamlit
 ### Installation
 clone this repository and run the following commands:
 
-```http
+```bash
 echo 'auth_key = "<your_NeuralSpace_auth_key>"' >> .streamlit/secrets.toml
-
 ```
+
 this adds your NeuralSpace authentication key in the appropriate directory
 
 
-```http
+```bash
+pip install jj
 docker build -t <image_name> .
 docker run <image_name>
 ```
