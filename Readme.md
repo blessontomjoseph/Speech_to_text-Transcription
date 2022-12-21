@@ -1,4 +1,4 @@
-# Speech-to-Text Transcription of YouTube Videos powerd by NeuralSpace API
+# Speech-to-Text Transcription of YouTube Videos powered by NeuralSpace API
 
 This project allows users to transcribe the audio of any YouTube video into text using NeuralSpace's speech to text API. It takes as input a YouTube URL and returns a transcript of the audio in the video.
 
